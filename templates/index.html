@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agendamento de Reuniões</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                text-align: center;
+            }
+        </style>
+<head>
+    <title>Agendamento de Reuniões</title>
+</head>
+<body>
+    <h1>Agendamento de Reuniões</h1>
+
+    <form method="POST">
+        <label for="nome_reuniao">Nome da Reunião:</label>
+        <input type="text" id="nome_reuniao" name="nome_reuniao" required>
+        <br><br>
+
+        <label for="inicio">Horário de Início (hh):</label>
+        <input type="number" id="inicio" name="inicio" required>
+        <br><br>
+
+        <label for="fim">Horário de Término (hh):</label>
+        <input type="number" id="fim" name="fim" required>
+        <br><br>
+
+        <input type="submit" value="Agendar Reunião">
+    </form>
+
+    <h2>Salas de Reunião</h2>
+
+    <ul>
+        {% for sala in salas %}
+            {% if sala.listar_reunioes_agendadas() %}
+                <li>{{ sala.nome }}: {{ sala.listar_reunioes_agendadas() }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>
