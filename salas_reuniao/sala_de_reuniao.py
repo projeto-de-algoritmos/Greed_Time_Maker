@@ -1,13 +1,14 @@
 class SalaDeReuniao:
-    def __init__(self, nome, horarios_disponiveis):
+    def __init__(self, nome, horarios_disponiveis, capacidade, recursos_disponiveis=None):
         self.nome = nome
         self.horarios_disponiveis = horarios_disponiveis
+        self.capacidade = capacidade
+        self.recursos_disponiveis = recursos_disponiveis if recursos_disponiveis is not None else []
         self.reunioes_agendadas = []
 
     def agendar_reuniao(self, reuniao):
-        if self.horarios_disponiveis[0] <= reuniao.inicio:
-            self.horarios_disponiveis[0] = reuniao.fim
-            self.reunioes_agendadas.append(reuniao)
+        self.reunioes_agendadas.append(reuniao)
+
 
     def __str__(self):
         return f"Sala de reunião '{self.nome}' disponível das {self.horarios_disponiveis[0]}h às {self.horarios_disponiveis[1]}h"
