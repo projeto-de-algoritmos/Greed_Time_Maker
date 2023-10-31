@@ -36,8 +36,8 @@ def index():
 
         if not sala_existente:
             nome_sala = f"Sala {len(salas) + 1}"
-            capacidade = 10  # Capacidade padrão
-            horarios_disponiveis = [8, 17]  # Horários padrão
+            capacidade = 10
+            horarios_disponiveis = [8, 17]  
             criar_sala(nome_sala, capacidade, horarios_disponiveis)
             salas[-1].agendar_reuniao(nova_reuniao)
 
